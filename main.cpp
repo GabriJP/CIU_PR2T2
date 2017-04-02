@@ -13,17 +13,16 @@ ULPGC, EII, Creando Interfaces de Usuario
 int win1, win2;
 #pragma clang diagnostic pop
 
-void InitGlew(){
+void InitGlew() {
     GLenum glew_init = glewInit();
-    if (glew_init != GLEW_OK){
+    if (glew_init != GLEW_OK) {
         fprintf(stderr, "Error %s\n", glewGetErrorString(glew_init));
-    }
-    else {
+    } else {
         printf("Status: Using GLEW %s\n", glewGetString(GLEW_VERSION));
     }
 }
 
-void Init1(){
+void Init1() {
     glClearColor(1.0, 0.0, 0.0, 0.0);
 
     glMatrixMode(GL_PROJECTION);
@@ -31,7 +30,7 @@ void Init1(){
     glOrtho(-1.0f, 1.0f, -1.0f, 1.0f, 1.0f, 0.0f);
 }
 
-void Init2(){
+void Init2() {
     glClearColor(0.0, 0.0, 1.0, 0.0);
 
     glMatrixMode(GL_PROJECTION);
@@ -39,13 +38,13 @@ void Init2(){
     glOrtho(-1.0f, 1.0f, -1.0f, 1.0f, 1.0f, 0.0f);
 }
 
-void Display1(){
+void Display1() {
     glClear(GL_COLOR_BUFFER_BIT);
 
     glFlush();
 }
 
-void Display2(){
+void Display2() {
     glClear(GL_COLOR_BUFFER_BIT);
 
     glFlush();
@@ -53,23 +52,25 @@ void Display2(){
 
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wunused-parameter"
-void MouseVentana1(int button, int state, int x, int y){
-    if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN){
+
+void MouseVentana1(int button, int state, int x, int y) {
+#pragma clang diagnostic pop
+    if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN) {
         printf("Ventana1, boton izquierdo presionado\n");
     }
 }
-#pragma clang diagnostic pop
 
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wunused-parameter"
-void MouseVentana2(int button, int state, int x, int y){
-    if (button == GLUT_RIGHT_BUTTON && state == GLUT_UP){
+
+void MouseVentana2(int button, int state, int x, int y) {
+#pragma clang diagnostic pop
+    if (button == GLUT_RIGHT_BUTTON && state == GLUT_UP) {
         printf("Ventana2, boton derecho liberado\n");
     }
 }
-#pragma clang diagnostic pop
 
-int main(int argc, char *argv[]){
+int main(int argc, char *argv[]) {
     glutInit(&argc, argv);
 
     glutInitWindowPosition(100, 100);
